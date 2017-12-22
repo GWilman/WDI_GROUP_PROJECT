@@ -22,7 +22,7 @@ Our feedback platform is a mobile-responsive MEAN stack single-page application,
 
 ###### After submitting a rating, the user is redirected to the lessons index page, which lists all lessons by date. Each lesson page presents the user with a visual representation of the students feelings, using the data from all ratings submitted between the lesson start and end time. First, a radar chart maps out the data - the larger the shape, the better the students feel about the lesson.
 
-<p align="center"><img src="https://imgur.com/q4TQFp0.png" width="700"></p>
+<p align="center"><img src="https://imgur.com/J9XnyAS.png" width="700"></p>
 
 ###### Next, each data point is presented as a value on a static dial. After this, the ratings of each student are displayed, with a colour system implemented so that instructors can easily identify students that struggled. Students which check the 'I need help' box on the rating submission page will have their profile image highlighted in red wherever it appears on the site. This can be turned off by the user on their edit profile page.
 
