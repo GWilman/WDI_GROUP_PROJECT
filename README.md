@@ -12,37 +12,37 @@ Our feedback platform is a mobile-responsive MEAN stack single-page application,
 
 ###### The planning phase of the project began with the creation of a Trello board, specifying our MVP requirements and desired features. Tasks were assigned to members of the group throughout the project using this system. The next step was wireframing our website.
 
-<img src="https://imgur.com/Nwreqpf.png" width="700">
+<p align="center"><img src="https://imgur.com/Nwreqpf.png" width="700"></p>
 
-<img src="https://imgur.com/cmTv6x9.png" width="700">
+<p align="center"><img src="https://imgur.com/cmTv6x9.png" width="700"></p>
 
 ######  The usefulness of the feedback platform depends on its usage by students so, with this in mind, we set out to make the process of submitting a rating as easy as possible. Once logged in, the user is immediately presented with the rating submission page, featuring easy to use dials, a message input and a checkbox to signal a desire for help.
 
-<img src="https://imgur.com/xCgUs0f.png" width="700">
+<p align="center"><img src="https://imgur.com/xCgUs0f.png" width="700"></p>
 
 ###### After submitting a rating, the user is redirected to the lessons index page, which lists all lessons by date. Each lesson page presents the user with a visual representation of the students feelings, using the data from all ratings submitted between the lesson start and end time. First, a radar chart maps out the data - the larger the shape, the better the students feel about the lesson.
 
-<img src="https://imgur.com/q4TQFp0.png" width="700">
+<p align="center"><img src="https://imgur.com/q4TQFp0.png" width="700"></p>
 
 ###### Next, each data point is presented as a value on a static dial. After this, the ratings of each student are displayed, with a colour system implemented so that instructors can easily identify students that struggled. Students which check the 'I need help' box on the rating submission page will have their profile image highlighted in red wherever it appears on the site. This can be turned off by the user on their edit profile page.
 
-<img src="https://imgur.com/q4G7FCw.png" width="700">
+<p align="center"><img src="https://imgur.com/q4G7FCw.png" width="700"></p>
 
 ###### Finally, the lesson notes (hosted using AWS S3) are displayed in an expanding section. They are also available to download from the top of the page. We faced a few difficulties implementing this part of the website but felt it was important, as it allowed students to easily access notes and read on their mobiles.
 
-<img src="https://imgur.com/Ygqdobw.png" width="700">
+<p align="center"><img src="https://imgur.com/Ygqdobw.png" width="700"></p>
 
 ###### The user profile page also visualises useful data by displaying an individual student's average ratings for each category along with a chart that maps the student's confidence over time.
 
-<img src="https://imgur.com/ZErAACH.png" width="700">
+<p align="center"><img src="https://imgur.com/ZErAACH.png" width="700"></p>
 
 ###### The class chat page provides a place for students to converse and ask for or offer help.
 
-<img src="https://imgur.com/ys59c8A.png" width="700">
+<p align="center"><img src="https://imgur.com/ys59c8A.png" width="700"></p>
 
 ###### Our application is thoroughly tested using Mocha and Chai.
 
-<img src="https://imgur.com/WZrijOu.png" width="700">
+<p align="center"><img src="https://imgur.com/WZrijOu.png" width="700"></p>
 
 ---
 
