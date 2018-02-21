@@ -11,6 +11,12 @@ const expressJWT = require('express-jwt');
 const app = express();
 const environment = app.get('env');
 
+// Stop app from sleeping on Heroku
+const http = require('http');
+setInterval(() => {
+  http.get('http://ga-feedback-george.herokuapp.com');
+}, 900000);
+
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect(db[environment], { useMongoClient: true });
