@@ -8,6 +8,8 @@ Our feedback platform is a mobile-responsive MEAN stack single-page application,
 
 ##### [Visit website](https://ga-feedback-george.herokuapp.com/)
 
+*Please be aware that Heroku apps go to sleep after 30 mins of inactivity and may take a little time to load*
+
 ---
 
 ###### The planning phase of the project began with the creation of a Trello board, specifying our MVP requirements and desired features. Tasks were assigned to members of the group throughout the project using this system. The next step was wireframing our website.
