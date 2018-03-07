@@ -29,7 +29,7 @@ function MainCtrl(
 
   function logout() {
     currentUserService.removeUser();
-    $rootScope.$broadcast('displayMessage', {
+    $rootScope.$broadcast('flash', {
       type: 'info',
       content: 'You have successfully logged out.'
     });
@@ -47,14 +47,14 @@ function MainCtrl(
   $rootScope.$on('error', (e, err) => {
     if (err.status === 401) {
       $state.go('login');
-      $rootScope.$broadcast('displayMessage', {
+      $rootScope.$broadcast('flash', {
         type: 'danger',
         content: err.data.message
       });
     }
   });
 
-  $rootScope.$on('displayMessage', (e, message) => {
+  $rootScope.$on('flash', (e, message) => {
     vm.message = message.content;
     vm.messageType = message.type;
 

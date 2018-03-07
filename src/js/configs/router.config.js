@@ -23,120 +23,89 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/users',
       templateUrl: '/js/views/users/index.html',
       controller: 'UsersIndexCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('usersEdit', {
       url: '/users/:id/edit',
       templateUrl: '/js/views/users/form.html',
       controller: 'UsersEditCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('usersShow', {
       url: '/users/:id',
       templateUrl: '/js/views/users/show.html',
       controller: 'UsersShowCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('lessonsIndex', {
       url: '/lessons',
       templateUrl: '/js/views/lessons/index.html',
       controller: 'LessonsIndexCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('lessonsNew', {
       url: '/lessons/new',
       templateUrl: '/js/views/lessons/form.html',
       controller: 'LessonsNewCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('lessonsEdit', {
       url: '/lessons/:id/edit',
       templateUrl: '/js/views/lessons/form.html',
       controller: 'LessonsEditCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('lessonsShow', {
       url: '/lessons/:id',
       templateUrl: '/js/views/lessons/show.html',
       controller: 'LessonsShowCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('cohortsIndex', {
       url: '/cohorts',
       templateUrl: '/js/views/cohorts/index.html',
       controller: 'CohortsIndexCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('cohortsEdit', {
       url: '/cohorts/:id/edit',
       templateUrl: '/js/views/cohorts/form.html',
       controller: 'CohortsEditCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('cohortsShow', {
       url: '/cohorts/:id',
       templateUrl: '/js/views/cohorts/show.html',
       controller: 'CohortsShowCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('commentIndex', {
       url: '/chat',
       templateUrl: '/js/views/chat/chat.html',
       controller: 'ChatCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     })
     .state('ratingsIndex', {
       url: '/ratings',
       templateUrl: '/js/views/ratings/index.html',
       controller: 'RatingsCtrl as vm',
-      resolve: {
-        redirectIfNotAuthenticated
-      }
+      resolve: { secureState }
     });
+
   $urlRouterProvider.otherwise('/');
 
-  redirectIfNotAuthenticated.$inject = [
-    '$q',
-    '$state',
-    '$auth',
-    '$timeout',
-    '$rootScope'
-  ];
-  function redirectIfNotAuthenticated($q, $state, $auth, $timeout, $rootScope) {
-    var defer = $q.defer();
-    if ($auth.getPayload()) {
-      defer.resolve();
-    } else {
-      $rootScope.$broadcast('displayMessage', {
+  secureState.$inject = ['$q', '$state', '$auth', '$rootScope'];
+
+  function secureState($q, $state, $auth, $rootScope) {
+    return new $q(resolve => {
+      if ($auth.isAuthenticated()) return resolve();
+
+      $rootScope.$broadcast('flash', {
         type: 'warning',
         content: 'You must be logged in.'
       });
-      $timeout(() => {
-        $state.go('login');
-      });
-    }
-    return defer.promise;
+
+      $state.go('login');
+    });
   }
 }

@@ -13,7 +13,7 @@ function LoginCtrl($auth, $state, currentUserService, $rootScope) {
         if (res.status === 200) {
           currentUserService.getUser();
           $state.go('ratingsIndex');
-          $rootScope.$broadcast('displayMessage', {
+          $rootScope.$broadcast('flash', {
             type: 'success',
             content: `You have successfully logged in, ${
               res.data.user.firstName
@@ -22,7 +22,7 @@ function LoginCtrl($auth, $state, currentUserService, $rootScope) {
         }
       })
       .catch(() => {
-        $rootScope.$broadcast('displayMessage', {
+        $rootScope.$broadcast('flash', {
           type: 'warning',
           content: 'Incorrect Credentials.'
         });
